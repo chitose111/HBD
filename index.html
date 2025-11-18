@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday!</title>
+
+    <style>
+        /* ---------------- ENVELOPE STYLE ---------------- */
+
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f7f7f8;
+        }
+
+        #envelope-wrapper {
+            position: fixed;
+            inset: 0;
+            background: #f7f7f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #envelope {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            background: #ff9a9e;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.7s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Envelope flap */
+        #envelope::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #ff7e8a;
+            clip-path: polygon(50% 0%, 100% 100%, 0 100%);
+            transition: 0.7s ease;
+        }
+
+        /* Text */
+        #envelope-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Animation: envelope open */
+        .open #envelope {
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+
+        .open #envelope::before {
+            transform: rotateX(180deg);
+            transform-origin: top;
+            opacity: 0;
+        }
+
+        .open #envelope-wrapper {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ---------------- YOUR ORIGINAL DESIGN BELOW THIS LINE ---------------- */
+
+        .birthday-banner {
+            width: 100%;
+            height: 270px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
+            display: none; /* initially hidden */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+            padding: 20px;
+        }
+
+        .birthday-banner.show {
+            display: flex;
+        }
+
+        /* Sparkles */
+        .birthday-banner::before,
+        .birthday-banner::after {
+            content: "";
+            position: absolute;
+            width: 230%;
+            height: 230%;
+            background-image: radial-gradient(white 1px, transparent 2px);
+            background-size: 50px 22px;
+            opacity: 1;
+            animation: sparkle 14s infinite linear;
+        }
+
+        .birthday-banner::after {
+            opacity: 0.18;
+            animation-duration: 30s;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(0, 0);}
+            100% { transform: translate(-999px, -1px);}
+        }
+
+        .birthday-banner h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .content {
+            display: none; /* hide until envelope opens */
+            width: min(900px, 92%);
+            margin: auto;
+            padding: 30px 0;
+        }
+
+        .show {
+            display: block !important;
+        }
+
+        h2 {
+            color: #ff6e9f;
+            font-size: 28px;
+            margin-top: 20px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-size: 17px;
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .photos-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: #ff7eb3;
+            color: white;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            transition: 0.25s;
+            text-decoration: none;
+        }
+
+        .photos-btn:hover {
+            background: #ff4f92;
+            transform: translateY(-3px);
+        }
+
+        /* ---------------- RESPONSIVE LAYOUT ---------------- */
+@media (max-width: 768px) {
+    .birthday-banner h1 {
+        font-size: 36px;
+    }
+    .content {
+        padding: 20px 10px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    pre {
+        font-size: 15px;
+        padding: 15px;
+    }
+    .photos-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+    #envelope {
+        width: 220px;
+        height: 150px;
+    }
+    #envelope-text {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .birthday-banner h1 {
+        font-size: 42px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    pre {
+        font-size: 16px;
+    }
+    .photos-btn {
+        font-size: 19px;
+        padding: 11px 22px;
+    }
+    #envelope {
+        width: 260px;
+        height: 180px;
+    }
+    #envelope-text {
+        font-size: 20px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Envelope Screen -->
+    <div id="envelope-wrapper">
+        <div id="envelope">
+            <div id="envelope-text">Click</div>
+        </div>
+    </div>
+
+    <!-- YOUR ORIGINAL PAGE STARTS HERE -->
+    <section class="birthday-banner" id="banner">
+        <h1>Hello Brother 🎉</h1>
+    </section>
+
+    <div class="content" id="mainContent">
+        <h2>Today is your special day, and I want to wish you a very happy birthday!</h2>
+
+        <pre>Today is your special day, and I want to wish you a very happy birthday! I truly wish I could be there with you in person to celebrate. Since you're far away, I decided to make this little effort to send you my warmest wishes from afar.
+
+On this day, I hope your heart is filled with joy and that you feel how much you are appreciated and loved. You deserve nothing but the best in life — happiness that lights up your days, success in everything you dream of, and above all, good health to enjoy every moment.
+
+I want to take a moment to say thank you, from the bottom of my heart, for being such an incredible friend and brother to me. Your support, kindness, and the good times we've shared mean more than words can express. I look forward to many more memories together.
+
+Once again, happy birthday my friend! May this year bring you endless blessings and unforgettable experiences.</pre>
+
+        <a href="page1.html" class="photos-btn">Beloved Pictures 📸</a>
+    </div>
+
+    <script>
+        const envelopeWrapper = document.getElementById('envelope-wrapper');
+        const envelope = document.getElementById('envelope');
+
+        envelope.addEventListener('click', () => {
+            document.body.classList.add('open');
+
+            setTimeout(() => {
+                document.getElementById('banner').classList.add('show');
+                document.getElementById('mainContent').classList.add('show');
+            }, 700);
+        });
+    </script>
+
+</body>
+</html>
