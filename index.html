@@ -126,43 +126,49 @@
 
         .birthday-banner h1 {
             font-size: 48px;
-            margin: 0;
+            margin: 30px 0 0 0; /* pushed slightly down */
             font-weight: 800;
             font-family: "Comic Neue", cursive;
-            margin-top: 30px; /* keeps the text slightly lower */
         }
 
         .content {
             display: none;
             width: min(900px, 92%);
             margin: auto;
-            padding: 30px 0;
+            padding: 40px 0;
+            min-height: calc(100vh - 320px); /* fills space below banner */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 25px;
         }
 
         .show {
-            display: block !important;
+            display: flex !important;
         }
 
         h2 {
             color: #ff6e9f;
-            font-size: 32px; /* increased from 28px */
-            margin-top: 20px;
+            font-size: 32px;
+            margin-top: 0;
             font-family: "Comic Neue", cursive;
         }
 
         pre {
             white-space: pre-wrap;
-            font-size: 22px; /* increased from 20px */
+            font-size: 22px;
             background: white;
             padding: 20px;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
             font-family: "Comic Neue", cursive;
+            flex-grow: 1;
         }
 
         .photos-btn {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 10px;
             padding: 12px 24px;
             background: #ff7eb3;
             color: white;
@@ -172,6 +178,7 @@
             transition: 0.25s;
             text-decoration: none;
             font-family: "Comic Neue", cursive;
+            align-self: flex-start;
         }
 
         .photos-btn:hover {
@@ -187,12 +194,13 @@
             }
             .content {
                 padding: 20px 10px;
+                min-height: auto;
             }
             h2 {
-                font-size: 26px; /* increased from 22px */
+                font-size: 26px;
             }
             pre {
-                font-size: 20px; /* increased from 18px */
+                font-size: 20px;
                 padding: 18px;
             }
             .photos-btn {
@@ -214,10 +222,10 @@
                 margin-top: 25px;
             }
             h2 {
-                font-size: 28px; /* increased from 24px */
+                font-size: 28px;
             }
             pre {
-                font-size: 21px; /* increased from 19px */
+                font-size: 21px;
             }
             .photos-btn {
                 font-size: 19px;
