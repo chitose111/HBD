@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <title>Happy Birthday!</title>
 
+    <!-- Cute Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
         /* ---------------- ENVELOPE STYLE ---------------- */
 
         body {
             margin: 0;
-            font-family: "Poppins", sans-serif;
+            font-family: "Comic Neue", cursive, sans-serif; /* UPDATED FONT */
             background: #f7f7f8;
         }
 
@@ -35,7 +38,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* Envelope flap */
         #envelope::before {
             content: "";
             position: absolute;
@@ -48,7 +50,6 @@
             transition: 0.7s ease;
         }
 
-        /* Text */
         #envelope-text {
             position: absolute;
             top: 50%;
@@ -58,9 +59,9 @@
             color: white;
             font-weight: 600;
             text-align: center;
+            font-family: "Comic Neue", cursive; /* UPDATED FONT */
         }
 
-        /* Animation: envelope open */
         .open #envelope {
             transform: translateY(-200px);
             opacity: 0;
@@ -80,13 +81,13 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        /* ---------------- YOUR ORIGINAL DESIGN BELOW THIS LINE ---------------- */
+        /* ---------------- PAGE CONTENT ---------------- */
 
         .birthday-banner {
             width: 100%;
             height: 270px;
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fbc2eb 100%);
-            display: none; /* initially hidden */
+            display: none;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -101,7 +102,6 @@
             display: flex;
         }
 
-        /* Sparkles */
         .birthday-banner::before,
         .birthday-banner::after {
             content: "";
@@ -128,10 +128,12 @@
             font-size: 48px;
             margin: 0;
             font-weight: 800;
+            font-family: "Comic Neue", cursive; /* UPDATED */
+            margin-top: 30px; /* ⬅️ Move text slightly down */
         }
 
         .content {
-            display: none; /* hide until envelope opens */
+            display: none;
             width: min(900px, 92%);
             margin: auto;
             padding: 30px 0;
@@ -145,15 +147,17 @@
             color: #ff6e9f;
             font-size: 28px;
             margin-top: 20px;
+            font-family: "Comic Neue", cursive; /* UPDATED */
         }
 
         pre {
             white-space: pre-wrap;
-            font-size: 17px;
+            font-size: 20px; /* Bigger */
             background: white;
             padding: 20px;
             border-radius: 16px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            font-family: "Comic Neue", cursive; /* UPDATED */
         }
 
         .photos-btn {
@@ -167,6 +171,7 @@
             font-weight: 600;
             transition: 0.25s;
             text-decoration: none;
+            font-family: "Comic Neue", cursive; /* UPDATED */
         }
 
         .photos-btn:hover {
@@ -174,58 +179,58 @@
             transform: translateY(-3px);
         }
 
-        /* ---------------- RESPONSIVE LAYOUT ---------------- */
-@media (max-width: 768px) {
-    .birthday-banner h1 {
-        font-size: 36px;
-    }
-    .content {
-        padding: 20px 10px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-    pre {
-        font-size: 15px;
-        padding: 15px;
-    }
-    .photos-btn {
-        font-size: 18px;
-        padding: 10px 20px;
-    }
-    #envelope {
-        width: 220px;
-        height: 150px;
-    }
-    #envelope-text {
-        font-size: 18px;
-    }
-}
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 768px) {
+            .birthday-banner h1 {
+                font-size: 36px;
+                margin-top: 20px; /* ⬅️ also responsive adjustment */
+            }
+            .content {
+                padding: 20px 10px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            pre {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .photos-btn {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+            #envelope {
+                width: 220px;
+                height: 150px;
+            }
+            #envelope-text {
+                font-size: 18px;
+            }
+        }
 
-@media (min-width: 769px) and (max-width: 1200px) {
-    .birthday-banner h1 {
-        font-size: 42px;
-    }
-    h2 {
-        font-size: 24px;
-    }
-    pre {
-        font-size: 16px;
-    }
-    .photos-btn {
-        font-size: 19px;
-        padding: 11px 22px;
-    }
-    #envelope {
-        width: 260px;
-        height: 180px;
-    }
-    #envelope-text {
-        font-size: 20px;
-    }
-}
-
-
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .birthday-banner h1 {
+                font-size: 42px;
+                margin-top: 25px; /* ⬅️ responsive adjustment */
+            }
+            h2 {
+                font-size: 24px;
+            }
+            pre {
+                font-size: 19px;
+            }
+            .photos-btn {
+                font-size: 19px;
+                padding: 11px 22px;
+            }
+            #envelope {
+                width: 260px;
+                height: 180px;
+            }
+            #envelope-text {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -238,7 +243,7 @@
         </div>
     </div>
 
-    <!-- YOUR ORIGINAL PAGE STARTS HERE -->
+    <!-- PAGE CONTENT -->
     <section class="birthday-banner" id="banner">
         <h1>Hello Brother 🎉</h1>
     </section>
@@ -258,9 +263,8 @@ Once again, happy birthday my friend! May this year bring you endless blessings 
     </div>
 
     <script>
-        const envelopeWrapper = document.getElementById('envelope-wrapper');
         const envelope = document.getElementById('envelope');
-
+        
         envelope.addEventListener('click', () => {
             document.body.classList.add('open');
 
